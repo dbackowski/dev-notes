@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  width: 95%;
+  margin: 0 auto;
+  color: #000;
+}
+
+form#search {
+  margin-bottom: 20px;
+}
+
+form#search input[type="text"] {
+  width: 300px;
+}
+
+#note-list {
+  margin-top: 10px; 
+}
+
+.note {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #999;
+  width: 32%; 
+  float: left;
+  padding: 5px;
+  margin: 2px;
+}
+
+.note h2 a {
+  color: inherit;
+  text-decoration: none;  
+}
+
+.note h2 {
+  color: #5FA800;
+}

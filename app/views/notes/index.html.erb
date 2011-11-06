@@ -1,0 +1,11 @@
+<h1><%= link_to 'Dev Notes', notes_path %></h1>
+
+<%= form_tag '#', :id => 'search' do %>
+  <%= text_field_tag 'search' %>
+<% end %>
+
+<%= link_to 'New Note', new_note_path %>
+
+<div id="note-list">
+  <%= render :partial => 'notes' %>
+</div>

@@ -1,0 +1,17 @@
+<% @notes.each do |note| %>
+  <div class="note">
+    <h2>
+      <%= link_to note.title, note %>
+    </h2>
+    <%= note.description %><br />
+    
+    <%= link_to 'Edit', edit_note_path(note) %>
+    <%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %>
+  </div>
+<% end %>
+
+<div style="clear: both;"></div>
+
+<div class="apple_pagination">
+  <%= will_paginate @notes %>
+</div>
