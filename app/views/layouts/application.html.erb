@@ -2,11 +2,18 @@
 <html>
 <head>
   <title>DevNotes</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div id="top-menu">
+  <h1 class="title"><%= link_to 'Dev Notes', notes_path %></h1>
+    <%= link_to 'Notes', notes_path %>
+    <%= link_to 'Categories', categories_path %>
+    <%= link_to 'New Note', new_note_path %>
+</div>
 
 <%= yield %>
 

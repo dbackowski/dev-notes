@@ -1,12 +1,11 @@
 DevNotes::Application.routes.draw do
-  resources :tests
-
   resources :notes do
     collection do
       get 'search'
     end
   end
 
+  resources :categories
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
