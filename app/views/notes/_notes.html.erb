@@ -1,14 +1,10 @@
+<div class="row">
 <% @notes.each do |note| %>
-  <div class="note">
-    <h2>
-      <%= link_to note.title, note %>
-    </h2>
-    <%= note.description %><br />
+  <div class="span5">
+    <h2><%= link_to note.title, note %></h2>
+    <%= note.description %>
   </div>
 <% end %>
-
-<div style="clear: both;"></div>
-
-<div class="apple_pagination">
-  <%= will_paginate @notes %>
 </div>
+
+<%= will_paginate @notes %>

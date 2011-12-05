@@ -2,24 +2,58 @@
 <html>
 <head>
   <title>DevNotes</title>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <div class="brand">Dev Notes</div>
+        <ul class="nav">
+          <li class="active"><%= link_to 'Notes', notes_path %></li>
+          <li><%= link_to 'Categories', categories_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+        </ul>
+        
+        <% unless @logged_user.blank? %>
+          <p class="pull-right">
+            Logged as: <%= link_to @logged_user.full_name, edit_user_path(@logged_user) %>&nbsp;<%= link_to 'Log out', {:controller => '/sessions', :action => :destroy}, :method => :delete, :class => 'btn danger smaller' %>
+          </p>
+        <% else %>
+          <form action="" class="pull-right">
+            <input class="input-small" type="text" placeholder="Username">
+            <input class="input-small" type="password" placeholder="Password">
+            <button class="btn" type="submit">Sign in</button>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<div id="top-menu">
-  <h1 class="title"><%= link_to 'Dev Notes', notes_path %></h1>
-    <%= link_to 'Notes', notes_path %>
-    <%= link_to 'Categories', categories_path %>
-    <%= link_to 'Users', users_path %>
-    <%= link_to 'New Note', new_note_path %>
-    <% unless @logged_user.blank? %>
-      <%= link_to 'Log out', {:controller => '/sessions', :action => :destroy}, :method => :delete %>
-    <% end %>
-</div>
+  <div class="container">
+    <div class="content">
+      <% unless flash[:error].blank? %>
+        <div class="alert-message warning">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
 
-<%= yield %>
+      <% unless flash[:notice].blank? %>
+        <div class="alert-message success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>&copy; 2011</p>
+    </footer>
+  </div> 
 
 </body>
 </html>

@@ -1,6 +1,13 @@
-<%= form_tag '', :id => 'search-form', :method => :get do %>
-  <%= text_field_tag 'search' %>
-<% end %>
+<div class="row">
+  <div class="span14">
+    <%= form_tag '', :id => 'search-form', :method => :get do %>
+      <%= text_field_tag 'search', '', :class => 'span7' %>
+    <% end %>
+  </div>
+  <div class="span2">
+    <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
+  </div>
+</div>
 
 <div id="note-list">
   <%= render :partial => 'notes' %>
