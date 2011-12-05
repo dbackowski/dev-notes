@@ -15,6 +15,5 @@
   <%= @note.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Edit', edit_note_path(@note) %>
+<%= link_to 'Destroy', @note, confirm: 'Are you sure?', method: :delete %>

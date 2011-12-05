@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_filter :get_categories, :only => [:new, :create, :edit, :update]
+  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
   
   private
   def get_categories

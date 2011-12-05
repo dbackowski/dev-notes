@@ -4,9 +4,6 @@
       <%= link_to note.title, note %>
     </h2>
     <%= note.description %><br />
-    
-    <%= link_to 'Edit', edit_note_path(note) %>
-    <%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %>
   </div>
 <% end %>
 

@@ -1,0 +1,15 @@
+<%= form_for :user, :url => {:action => :create} do |f| %>
+  <div class="field">
+    <%= f.label 'Login' %>
+    <%= f.text_field :login %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'Password' %>
+    <%= f.text_field :passwd %>
+  </div>  
+  
+  <div class="actions">
+    <%= f.submit 'Log in' %>
+  </div>
+<% end %>
