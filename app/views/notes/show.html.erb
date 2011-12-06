@@ -10,6 +10,13 @@
     </p>
   </div>
   <div class="span4">
+    <h4>Added by:</h4>
+    <p>
+      <%= image_tag @note.user.get_gravatar_path, :width => 64, :height => 64 %>
+    </p>
+    <p>
+      <%= @note.user.full_name %>
+    </p>
     <%= link_to 'Edit note', edit_note_path(@note), :class => 'btn primary small' %>
     <%= link_to 'Destroy note', @note, confirm: 'Are you sure?', method: :delete, :class => 'btn danger small' %>
   </div>

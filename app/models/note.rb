@@ -6,4 +6,6 @@ class Note < ActiveRecord::Base
   self.per_page = 12
   
   belongs_to :category
+  belongs_to :user,
+    :foreign_key => 'add_user_id'
 end
