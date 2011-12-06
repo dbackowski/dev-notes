@@ -19,6 +19,6 @@ module ApplicationHelper
   end
 
   def pretty_print(text)
-    text.gsub(/\[code\](.+)\[\/code\]/m, "<code class=\"prettyprint\">\\1</code>").html_safe
+    simple_format text.gsub(/\[code\](.+)\[\/code\]/m)  { "<code class=\"prettyprint\">#{$1.strip}</code>" }.html_safe
   end
 end
