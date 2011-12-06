@@ -1,12 +1,19 @@
 class NotesController < ApplicationController
   before_filter :get_categories, :only => [:new, :create, :edit, :update]
   before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
-  
+  before_filter :cancel_form, :only => [:create, :update]
+
   private
   def get_categories
     @categories = Category.order('name')
   end
   
+  def cancel_form
+    if params['commit'] == 'cancel'
+      redirect_to note_path
+    end
+  end
+
   public
   def index
     @notes = Note.paginate(:page => params[:page])

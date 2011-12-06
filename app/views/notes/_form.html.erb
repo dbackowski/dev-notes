@@ -30,6 +30,7 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', :class => 'btn primary small' %>
+    <%= f.submit 'Cancel', :value => 'cancel', :class => 'btn small' %>
   </div>
 <% end %>

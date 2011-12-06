@@ -1,8 +1,10 @@
 <div class="row">
 <% @notes.each do |note| %>
-  <div class="span5">
+  <div class="span-one-third">
+    <div class="note">
     <h2><%= link_to note.title, note %></h2>
     <%= note.description %>
+    </div>
   </div>
 <% end %>
 </div>

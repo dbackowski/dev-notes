@@ -52,3 +52,20 @@ body {
 .topbar .btn {
   border: 0;
 }
+
+.note {
+  background-color: whiteSmoke;
+  display: block;
+  padding: 5px;
+  /*margin: 0 0 18px;*/
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #CCC;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+/*  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;*/
+}
