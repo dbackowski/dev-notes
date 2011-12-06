@@ -33,6 +33,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(params[:note])
+    @note.add_user_id = @logged_user.id
     
     if @note.save
       redirect_to @note, notice: 'Note was successfully created.'

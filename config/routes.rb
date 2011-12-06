@@ -1,6 +1,4 @@
 DevNotes::Application.routes.draw do
-  resources :users
-
   resources :notes do
     collection do
       get 'search'
@@ -10,6 +8,11 @@ DevNotes::Application.routes.draw do
   resources :categories
   resource :sessions, :only => [:new, :create, :destroy]
 
+  namespace :admin do
+    resources :users
+    resources :categories
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

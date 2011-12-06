@@ -1,0 +1,16 @@
+<%= form_for :category, :url => url_for(:action => @category.new_record? ? 'create' : 'update'),
+    :method => @category.new_record? ? :post : :put do |f| %>
+  <%= error_messages_for :category %>
+
+  <div class="clearfix">
+    <%= f.label :name %>
+    <div class="input">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Save', :class => 'btn primary small' %>
+    <%= f.submit 'Cancel', :value => 'cancel', :class => 'btn small' %>
+  </div>
+<% end %>

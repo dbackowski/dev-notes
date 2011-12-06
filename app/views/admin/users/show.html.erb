@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2>User info</h2>
 
 <p>
   <b>Login:</b>
@@ -21,10 +21,15 @@
 </p>
 
 <p>
-  <b>Admin:</b>
-  <%= @user.admin %>
+  <b>E-mail:</b>
+  <%= @user.email %>
 </p>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <b>Admin:</b>
+  <% if @user.admin %>
+    <span class="label success">Yes</span>
+  <% else %>  
+    <span class="label">No</span>
+  <% end %>
+</p>

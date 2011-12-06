@@ -54,10 +54,11 @@ body {
 }
 
 .note {
+  position: relative;
   background-color: whiteSmoke;
   display: block;
   padding: 5px;
-  /*margin: 0 0 18px;*/
+  margin: 5px;
   line-height: 18px;
   font-size: 12px;
   border: 1px solid #CCC;
@@ -68,4 +69,31 @@ body {
 /*  white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;*/
+  height: 170px;
+  overflow: hidden;
+}
+
+.note .gradient {
+  height: 50px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  z-index: 2;
+  filter: progid::DXImageTransform.Microsoft.gradient(startColorstr='#00f3f3f3', endColorstr='#fff3f3f3'));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(243, 243, 243, 0)), to(#f3f3f3));
+  background: -moz-linear-gradient(top, rgba(243, 243, 243, 0), #f3f3f3);
+  background: -o-linear-gradient(top, rgba(243, 243, 243, 0), #f3f3f3); 
+}
+
+.field_with_errors input, .field_with_errors select, .field_with_errors textarea {
+  color: #b94a48;
+  border-color: #ee5f5b;
+}
+
+.field_with_errors input:focus, .field_with_errors:focus select, .field_with_errors:focus textarea {
+  border-color: #e9322d;
+  -webkit-box-shadow: 0 0 6px #f8b9b7;
+  -moz-box-shadow: 0 0 6px #f8b9b7;
+  box-shadow: 0 0 6px #f8b9b7;
 }

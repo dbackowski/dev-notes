@@ -1,12 +1,19 @@
-<div class="row">
-<% @notes.each do |note| %>
-  <div class="span-one-third">
-    <div class="note">
-    <h2><%= link_to note.title, note %></h2>
-    <%= note.description %>
+<% unless @notes.blank? %>
+  <div class="row">
+  <% @notes.each do |note| %>
+    <div class="span-one-third">
+      <div class="note">
+        <h2><%= link_to note.title, note %></h2>
+        <%= note.description[0..200] %>
+        <div class="gradient"></div>
+      </div>
     </div>
+  <% end %>
   </div>
-<% end %>
-</div>
 
-<%= will_paginate @notes %>
+  <%= will_paginate @notes %>
+<% else %>
+  <p>
+    No notes found.
+  </p>
+<% end %>

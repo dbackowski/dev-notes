@@ -1,0 +1,38 @@
+<div class="row">
+  <span class="span12">
+    <h2>Users list</h2>
+  </span>
+  <span class="pull-right">
+    <%= link_to 'New User', new_admin_user_path, :class => 'btn primary small' %>
+  </span>
+</div>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Admin</th>
+    <th class="span5"></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.login %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td>
+    <% if user.admin %>
+      <span class="label success">Yes</span>
+    <% else %>  
+      <span class="label">No</span>
+    <% end %>
+    </td>
+    <td>
+      <%= link_to 'Show', admin_user_path(:id => user.id) %>
+      <%= link_to 'Edit', edit_admin_user_path(:id => user.id) %>
+      <%= link_to 'Destroy', admin_user_path(:id => user.id), confirm: 'Are you sure?', method: :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

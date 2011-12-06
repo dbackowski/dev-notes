@@ -1,7 +1,11 @@
 <% unless @categories.blank? %>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) %><br />
-  <% end %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
 <% else %>
-  No categories found
+  <p>
+    No categories found.
+  </p>
 <% end %>
