@@ -17,4 +17,8 @@ module ApplicationHelper
       result = content_tag :div, result, :class => 'alert-message block-message error'
     end
   end
+
+  def pretty_print(text)
+    text.gsub(/\[code\](.+)\[\/code\]/m, "<code class=\"prettyprint\">\\1</code>").html_safe
+  end
 end

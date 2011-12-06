@@ -10,6 +10,8 @@
 
 
 $(document).ready(function(){
+	prettyPrint();
+	
 	$("#search").bind("keyup", function() {
 	  	$("#note-list").addClass("loading"); // show the spinner
 	  	var form = $("#search-form"); // grab the form wrapping the search bar.
