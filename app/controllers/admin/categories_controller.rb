@@ -1,9 +1,16 @@
 class Admin::CategoriesController < ApplicationController
   before_filter :get_category, :only => [:edit, :update, :destroy]
+  before_filter :cancel_form, :only => [:create, :update] 
   
   private
   def get_category
     @category = Category.find(params[:id])
+  end
+
+  def cancel_form
+    if params['commit'] == 'cancel'
+      redirect_to admin_categories_path
+    end
   end
 
   public

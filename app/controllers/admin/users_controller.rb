@@ -1,9 +1,16 @@
 class Admin::UsersController < ApplicationController
   before_filter :get_user, :only => [:edit, :update, :show, :destroy]
-
+  before_filter :cancel_form, :only => [:create, :update] 
+  
   private 
   def get_user
     @user = User.find(params[:id])
+  end
+
+  def cancel_form
+    if params['commit'] == 'cancel'
+      redirect_to admin_users_path
+    end
   end
 
   public
