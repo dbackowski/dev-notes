@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_filter :authorize
   
   def create
-    user = User.where("login = ? AND passwd = ?", params[:user][:login], params[:user][:passwd]).first
+    user = User.where("login = ? AND passwd = md5(?)", params[:user][:login], params[:user][:passwd]).first
     
     unless user.blank?
       session[:user_id] = user.id
