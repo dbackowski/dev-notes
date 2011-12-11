@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>DevNotes</title>
+  <%= stylesheet_link_tag "prettify" %>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  <%= stylesheet_link_tag "prettify" %>
   <%= javascript_include_tag "prettify" %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,11 +14,14 @@
     <div class="fill">
       <div class="container">
         <div class="brand">Dev Notes</div>
+       
         <ul class="nav">
-          <li class="active"><%= link_to 'Notes', notes_path %></li>
-          <li><%= link_to 'Categories', categories_path %></li>
-          <li><%= link_to 'Categories list', admin_categories_path %></li>
-          <li><%= link_to 'Users list', admin_users_path %></li>
+          <li <%= 'class=active' if controller.class.to_s == 'NotesController' %>><%= link_to 'Notes', notes_path %></li>
+          <li <%= 'class=active' if controller.class.to_s == 'CategoriesController' %>><%= link_to 'Categories', categories_path %></li>
+          <% if is_admin? %>
+            <li <%= 'class=active' if controller.class.to_s == 'Admin::CategoriesController' %>><%= link_to 'Categories list', admin_categories_path %></li>
+            <li <%= 'class=active' if controller.class.to_s == 'Admin::UsersController' %>><%= link_to 'Users list', admin_users_path %></li>
+          <% end %>
         </ul>
         
         <% unless @logged_user.blank? %>
@@ -26,11 +29,9 @@
             Logged as: <%= link_to @logged_user.full_name, '#' %>&nbsp;<%= link_to 'Log out', {:controller => '/sessions', :action => :destroy}, :method => :delete, :class => 'btn danger smaller' %>
           </p>
         <% else %>
-          <form action="" class="pull-right">
-            <input class="input-small" type="text" placeholder="Username">
-            <input class="input-small" type="password" placeholder="Password">
-            <button class="btn" type="submit">Sign in</button>
-          </form>
+          <p class="pull-right">
+            <%= link_to 'Log in', new_sessions_path, :class => 'btn small' %>
+          </p>
         <% end %>
       </div>
     </div>

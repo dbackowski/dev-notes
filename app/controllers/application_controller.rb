@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
       @logged_user = User.find(session[:user_id])
     end
   end
+
+  def admin_permission
+    if @logged_user.blank? || !@logged_user.admin
+      render :nothing => true, :status => 403
+    end
+  end
 end

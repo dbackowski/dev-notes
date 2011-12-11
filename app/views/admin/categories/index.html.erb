@@ -18,7 +18,11 @@
     <td><%= category.name %></td>
     <td>
       <%= link_to 'Edit', edit_admin_category_path(:id => category.id) %>
+      <% if category.removable? %>
       <%= link_to 'Destroy', admin_category_path(:id => category.id), confirm: 'Are you sure?', method: :delete %>
+      <% else %>
+        <spac class="disabled">Destroy</span>
+      <% end %>
     </td>
   </tr>
 <% end %>

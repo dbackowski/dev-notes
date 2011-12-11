@@ -115,3 +115,13 @@ code {
   word-wrap: break-word;*/
 
 }
+
+.prettyprint {
+  background-color: #fefbf3;
+  padding: 9px;
+  margin-right: 5px;
+  border: 1px solid rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}

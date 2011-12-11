@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_filter :get_user, :only => [:edit, :update, :show, :destroy]
   before_filter :cancel_form, :only => [:create, :update] 
+  before_filter :admin_permission
   
   private 
   def get_user

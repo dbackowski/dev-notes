@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def is_admin?
+    unless @logged_user.blank?
+      @logged_user.admin
+    end
+  end
+
   def error_messages_for(object_name)
     model = instance_variable_get("@#{object_name}")
     
@@ -19,6 +25,7 @@ module ApplicationHelper
   end
 
   def pretty_print(text)
-    text.gsub(/\[code\](.+)\[\/code\]/m)  { "<code class=\"prettyprint\">#{$1.strip}</code>" }.gsub(/\n/, "<br />").html_safe
+    text.gsub!(/\n/, "<br />")
+    text.gsub(/\[code\](.+)\[\/code\]/m) { "<pre class=\"prettyprint\">#{$1.gsub("<br />", "\n")}</pre>" }.html_safe
   end
 end
