@@ -12,7 +12,7 @@
   <% end %>
   </div>
 
-  <%= will_paginate @notes %>
+  <%= will_paginate @notes, :renderer => BootstrapPaginationLinkRenderer %>
 <% else %>
   <p>
     No notes found.
