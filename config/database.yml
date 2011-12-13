@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: dev-notes
+  database: dev-notes_development
   pool: 5
   username: mysql
   password:
@@ -35,7 +35,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: dev-notes_production
+  database: dev-notes
   pool: 5
   username: root
   password:
