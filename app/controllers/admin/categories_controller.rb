@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_filter :get_category, :only => [:edit, :update, :destroy]
   before_filter :cancel_form, :only => [:create, :update] 
+  before_filter :authorize
   before_filter :admin_permission
   
   private

@@ -1,11 +1,13 @@
 <div class="row">
   <div class="span14">
     <%= form_tag '#', :id => 'search-form', :method => :get do %>
-      <%= text_field_tag 'search', params[:search], :class => 'span7' %>
+      <%= text_field_tag 'search', params[:search], :class => 'span5 search' %>
     <% end %>
   </div>
   <div class="span2">
-    <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
+    <% if @logged_user.present? %>
+      <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
+    <% end %>
   </div>
 </div>
 

@@ -17,8 +17,10 @@
     <p>
       <%= @note.user.full_name %>
     </p>
-    <%= link_to 'Edit note', edit_note_path(@note), :class => 'btn primary small' %>
-    <%= link_to 'Destroy note', @note, :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small' %>
+    <% if @logged_user.present? && (@logged_user.id == @note.add_user_id || is_admin?)%>
+      <%= link_to 'Edit note', edit_note_path(@note), :class => 'btn primary small' %>
+      <%= link_to 'Destroy note', @note, :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small' %>
+    <% end %>
   </div>
 </div>
 
