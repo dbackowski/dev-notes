@@ -29,9 +29,11 @@
     <% end %>
     </td>
     <td>
-      <%= link_to 'Show', admin_user_path(:id => user.id) %>
-      <%= link_to 'Edit', edit_admin_user_path(:id => user.id) %>
-      <%= link_to 'Destroy', admin_user_path(:id => user.id), :confirm => 'Are you sure?', :method => :delete %>
+      <span class="pull-right">
+        <%= link_to 'Show', admin_user_path(:id => user.id) %>
+        <%= link_to 'Edit', edit_admin_user_path(:id => user.id) %>
+        <%= link_to 'Destroy', admin_user_path(:id => user.id), :confirm => 'Are you sure?', :method => :delete %>
+      </span>
     </td>
   </tr>
 <% end %>
