@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_users_path, :notice => 'User was successfully created.'
     else
-      render action: "new"
+      render :action => "new"
     end
   end
 
@@ -40,7 +40,7 @@ class Admin::UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => 'User was successfully updated.'
     else
-      render action: "edit"
+      render :action => "edit"
     end
   end
 

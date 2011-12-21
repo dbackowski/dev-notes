@@ -30,7 +30,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       redirect_to admin_categories_path, :notice => 'Category was successfully created.'
     else
-      render action: "new"
+      render :action => "new"
     end
   end
 
@@ -38,7 +38,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.update_attributes(params[:category])
       redirect_to admin_categories_path, :notice => 'Category was successfully updated.'
     else
-      render action: "edit"
+      render :action => "edit"
     end
   end
 
