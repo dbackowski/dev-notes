@@ -28,7 +28,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to admin_users_path, notice: 'User was successfully created.'
+      redirect_to admin_users_path, :notice => 'User was successfully created.'
     else
       render action: "new"
     end
@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to admin_users_path, notice: 'User was successfully updated.'
+      redirect_to admin_users_path, :notice => 'User was successfully updated.'
     else
       render action: "edit"
     end
