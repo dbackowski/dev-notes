@@ -18,6 +18,12 @@
     </div>
   </div>
   <div class="clearfix">
+    <%= f.label :public_visible %>
+    <div class="input">
+      <%= f.check_box :public_visible %>
+    </div>
+  </div>
+  <div class="clearfix">
     <%= f.label :title %>
     <div class="input">
       <%= f.text_field :title, :class => 'span9' %>

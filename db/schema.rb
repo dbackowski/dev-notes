@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227112140) do
+ActiveRecord::Schema.define(:version => 20111227132749) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20111227112140) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "add_user_id"
+    t.boolean  "public_visible", :default => true
   end
 
   add_index "notes", ["add_user_id"], :name => "notes_add_user_id_fk"

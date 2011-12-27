@@ -8,4 +8,6 @@ class Note < ActiveRecord::Base
   belongs_to :category
   belongs_to :user,
     :foreign_key => 'add_user_id'
+
+  scope :public_visible_only, :conditions => { :public_visible => true }
 end

@@ -16,11 +16,19 @@ class NotesController < ApplicationController
 
   public
   def index
-    @notes = Note.paginate(:page => params[:page])
+    if @logged_user.present?
+      @notes = Note.paginate(:page => params[:page])
+    else
+      @notes = Note.public_visible_only.paginate(:page => params[:page])
+    end
   end
 
   def show
-    @note = Note.find(params[:id])
+    if @logged_user.present?
+      @note = Note.find(params[:id])
+    else
+      @note = Note.public_visible_only.find(params[:id])
+    end
   end
 
   def new
@@ -54,7 +62,12 @@ class NotesController < ApplicationController
 
   def search
     search = "%#{params[:search]}%"
-    @notes = Note.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
+
+    if @logged_user.present?
+      @notes = Note.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
+    else
+      @notes = Note.public_visible_only.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
+    end
     
     render :partial => 'notes'
   end

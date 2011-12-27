@@ -6,6 +6,14 @@
       <%= @note.category.name %>
     </p>
     <p>
+      <b>Public Visible:</b>
+      <% if @note.public_visible %>
+        <span class="label important">Yes</span>
+      <% else %>  
+        <span class="label">No</span>
+      <% end %>
+    </p>
+    <p>
       <%= pretty_print @note.description %>
     </p>
   </div>
