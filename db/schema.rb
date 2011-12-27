@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206134938) do
+ActiveRecord::Schema.define(:version => 20111227112140) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(:version => 20111206134938) do
     t.integer  "add_user_id"
   end
 
+  add_index "notes", ["add_user_id"], :name => "notes_add_user_id_fk"
+  add_index "notes", ["category_id"], :name => "notes_category_id_fk"
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "passwd"
@@ -38,5 +41,8 @@ ActiveRecord::Schema.define(:version => 20111206134938) do
     t.datetime "updated_at"
     t.string   "email"
   end
+
+  add_foreign_key "notes", "categories", :name => "notes_category_id_fk"
+  add_foreign_key "notes", "users", :name => "notes_add_user_id_fk", :column => "add_user_id"
 
 end
