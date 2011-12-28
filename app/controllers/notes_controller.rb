@@ -46,7 +46,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to @note, notice: 'Note was successfully created.'
     else
-      render action: "new"
+      render :action => "new"
     end
   end
 
@@ -56,7 +56,7 @@ class NotesController < ApplicationController
     if @note.update_attributes(params[:note])
       redirect_to @note, notice: 'Note was successfully updated.'
     else
-      render action: "edit"
+      render :action => "edit"
     end
   end
 
