@@ -44,7 +44,7 @@ class NotesController < ApplicationController
     @note.add_user_id = @logged_user.id
     
     if @note.save
-      redirect_to @note, notice: 'Note was successfully created.'
+      redirect_to @note, :notice => 'Note was successfully created.'
     else
       render :action => "new"
     end
@@ -54,7 +54,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     if @note.update_attributes(params[:note])
-      redirect_to @note, notice: 'Note was successfully updated.'
+      redirect_to @note, :notice => 'Note was successfully updated.'
     else
       render :action => "edit"
     end
