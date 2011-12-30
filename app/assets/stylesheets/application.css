@@ -53,6 +53,23 @@ body {
   border: 0;
 }
 
+.topbar p a.btn {
+  color: #333333;  
+}
+
+.topbar p a.btn.danger, .topbar p a.btn.danger:hover {
+  color: #FFFFFF;
+}
+
+.topbar p a.btn.danger:hover {
+  background-color: #C43C35;
+}
+
+.topbar p a.btn:hover {
+  color: #333333;
+  background-color: #E6E6E6;
+}
+
 .note {
   position: relative;
   background-color: whiteSmoke;
