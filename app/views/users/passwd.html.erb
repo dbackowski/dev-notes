@@ -1,0 +1,21 @@
+<%= form_for @user, :url => passwd_user_path do |f| %>
+  <%= error_messages_for :user %>
+
+  <div class="clearfix">
+    <%= f.label :passwd, 'Password' %>
+    <div class="input">
+      <%= f.password_field :passwd %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :passwd_confirmation, 'Password confirmation' %>
+    <div class="input">
+      <%= f.password_field :passwd_confirmation %>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Save', :class => 'btn primary small' %>
+    <%= f.submit 'Cancel', :value => 'cancel', :class => 'btn small' %>
+  </div>
+<% end %>

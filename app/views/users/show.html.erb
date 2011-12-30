@@ -32,3 +32,9 @@
     <span class="label">No</span>
   <% end %>
 </p>
+
+<%= link_to 'Edit', edit_user_path(:id => @user.id), :class => 'btn small' %>
+<%= link_to 'Change password', passwd_user_path(:id => @user.id), :class => 'btn small' %>
+<% if is_admin? %>
+  <%= link_to 'Destroy', user_path(:id => @user.id), :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small' %>
+<% end %>

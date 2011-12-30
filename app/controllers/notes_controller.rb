@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   before_filter :get_categories, :only => [:new, :create, :edit, :update]
   before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :cancel_form, :only => [:create, :update]
+  before_filter :get_note, :only => [:edit, :update]
 
   private
   def get_categories
@@ -11,6 +12,16 @@ class NotesController < ApplicationController
   def cancel_form
     if params['commit'] == 'cancel'
       redirect_to note_path
+    end
+  end
+
+  def get_note 
+    if @logged_user.admin
+      @note = Note.find(params[:id])
+    else
+      @note = Note.where("id = ? AND add_user_id = ?", params[:id], @logged_user.id).first
+
+      raise ActiveRecord::RecordNotFound if @note.nil?
     end
   end
 
@@ -35,10 +46,6 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
-  def edit
-    @note = Note.find(params[:id])
-  end
-
   def create
     @note = Note.new(params[:note])
     @note.add_user_id = @logged_user.id
@@ -51,8 +58,6 @@ class NotesController < ApplicationController
   end
 
   def update
-    @note = Note.find(params[:id])
-
     if @note.update_attributes(params[:note])
       redirect_to @note, :notice => 'Note was successfully updated.'
     else

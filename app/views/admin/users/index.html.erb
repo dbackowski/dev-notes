@@ -13,7 +13,7 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Admin</th>
-    <th class="span5"></th>
+    <th class="span3"></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -30,9 +30,7 @@
     </td>
     <td>
       <span class="pull-right">
-        <%= link_to 'Show', admin_user_path(:id => user.id) %>
-        <%= link_to 'Edit', edit_admin_user_path(:id => user.id) %>
-        <%= link_to 'Destroy', admin_user_path(:id => user.id), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Show', user_path(:id => user.id) %>
       </span>
     </td>
   </tr>
