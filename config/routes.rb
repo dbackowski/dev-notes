@@ -1,7 +1,7 @@
 DevNotes::Application.routes.draw do
   resources :notes do
     collection do
-      get 'search'
+      post :search
     end
   end
 

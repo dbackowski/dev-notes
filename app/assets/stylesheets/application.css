@@ -70,6 +70,16 @@ body {
   background-color: #E6E6E6;
 }
 
+#notes-list {
+  margin-top: 10px;  
+}
+
+#notes-count {
+  float: left;
+  line-height: 25px;
+  margin-left: 5px;
+}
+
 .note {
   position: relative;
   background-color: whiteSmoke;

@@ -74,7 +74,7 @@ class NotesController < ApplicationController
       @notes = Note.public_visible_only.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
     end
     
-    render :partial => 'notes'
+   # render :partial => 'notes'
   end
   
   def destroy

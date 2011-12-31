@@ -2,6 +2,7 @@
   <div class="span14">
     <%= form_tag '#', :id => 'search-form', :method => :get do %>
       <%= text_field_tag 'search', params[:search], :class => 'span5 search' %>
+      <div id="notes-count"><b><%= "#{pluralize(@notes.count, 'note')}" %></b></div>
     <% end %>
   </div>
   <div class="span2">
@@ -11,6 +12,6 @@
   </div>
 </div>
 
-<div id="note-list">
+<div id="notes-list">
   <%= render :partial => 'notes' %>
 </div>

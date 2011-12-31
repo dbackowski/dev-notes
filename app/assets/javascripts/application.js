@@ -13,13 +13,13 @@ $(document).ready(function(){
 	prettyPrint();
 	
 	$("#search").bind("keyup", function() {
-	  	$("#note-list").addClass("loading"); // show the spinner
+	  	//$("#notes-list").addClass("loading"); // show the spinner
 	  	var form = $("#search-form"); // grab the form wrapping the search bar.
 	  	var url = "/notes/search"; // live_search action.  
 	  	var formData = form.serialize(); // grab the data in the form  
-	  	$.get(url, formData, function(html) { // perform an AJAX get
-	    	$("#note-list").removeClass("loading"); // hide the spinner
-	    	$("#note-list").html(html); // replace the "results" div with the results
+	  	$.post(url, formData, function(html) { // perform an AJAX get
+	   // 	$("#notes-list").removeClass("loading"); // hide the spinner
+	   // 	$("#notes-list").html(html); // replace the "results" div with the results
 	  	});
 	}); 
 }); 

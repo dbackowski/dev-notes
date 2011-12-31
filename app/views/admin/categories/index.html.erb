@@ -7,25 +7,29 @@
   </span>
 </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th class="span3"></th>
-  </tr>
+<% unless @categories.blank? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th class="span3"></th>
+    </tr>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td>
-      <span class="pull-right">
-        <%= link_to 'Edit', edit_admin_category_path(:id => category.id) %>
-        <% if category.removable? %>
-        <%= link_to 'Destroy', admin_category_path(:id => category.id), :confirm => 'Are you sure?', :method => :delete %>
-        <% else %>
-          <spac class="disabled">Destroy</span>
-        <% end %>
-      </span>
-    </td>
-  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td>
+        <span class="pull-right">
+          <%= link_to 'Edit', edit_admin_category_path(:id => category.id) %>
+          <% if category.removable? %>
+          <%= link_to 'Destroy', admin_category_path(:id => category.id), :confirm => 'Are you sure?', :method => :delete %>
+          <% else %>
+            <spac class="disabled">Destroy</span>
+          <% end %>
+        </span>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <%= info 'No categories found.' %>
 <% end %>
-</table>

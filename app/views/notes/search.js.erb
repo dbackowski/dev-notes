@@ -1,0 +1,2 @@
+$('#notes-list').html('<%= escape_javascript(render(:partial => 'notes'))%>');
+$('#notes-count').html('<b><%= "#{pluralize(@notes.count, 'note')}" %></b>');

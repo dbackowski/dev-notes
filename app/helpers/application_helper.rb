@@ -24,6 +24,10 @@ module ApplicationHelper
     end
   end
 
+  def info(msg)
+    content_tag(:div, msg, :class => 'alert-message block-message info')
+  end
+
   def pretty_print(text)
     text.gsub!(/\n/, "<br />")
     text.gsub(/\[code\](.*?)\[\/code\]/m) { "<pre class=\"prettyprint\">#{$1.gsub("<br />", "\n")}</pre>" }.html_safe
