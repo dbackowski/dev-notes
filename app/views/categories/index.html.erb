@@ -1,7 +1,10 @@
 <% unless @categories.blank? %>
   <ul>
     <% @categories.each do |category| %>
-      <li><%= link_to category.name, category_path(category) %>&nbsp;(<%= category.notes.count %>)</li>
+      <li>
+        <%= link_to category.name, category_path(category) %>
+        (<%= @logged_user.blank? ? category.notes.public_visible_only.count : category.notes.count %>)
+      </li>
     <% end %>
   </ul>
 <% else %>
