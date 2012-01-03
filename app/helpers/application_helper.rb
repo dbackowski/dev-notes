@@ -29,7 +29,6 @@ module ApplicationHelper
   end
 
   def pretty_print(text)
-    text.gsub!(/\n/, "<br />")
-    text.gsub(/\[code\](.*?)\[\/code\]/m) { "<pre class=\"prettyprint\">#{$1.gsub("<br />", "\n")}</pre>" }.html_safe
+    RedCloth.new(text.gsub(/\[code\](.*?)\[\/code\]/m) { "<notextile><pre class=\"prettyprint\">#{$1}</pre></notextile>" }).to_html.html_safe
   end
 end
