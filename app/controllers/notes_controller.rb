@@ -35,10 +35,10 @@ class NotesController < ApplicationController
   end
 
   def show
-    if @logged_user.present?
-      @note = Note.find(params[:id])
-    else
-      @note = Note.public_visible_only.find(params[:id])
+    @note = Note.find(params[:id])
+
+    unless @note.public_visible || @logged_user.present?
+      authorize
     end
   end
 

@@ -6,9 +6,7 @@
     <% end %>
   </div>
   <div class="span2">
-    <% if @logged_user.present? %>
-      <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
-    <% end %>
+    <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
   </div>
 </div>
 
