@@ -30,6 +30,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       redirect_to admin_categories_path, :notice => 'Category was successfully created.'
     else
+      flash.now[:error] = 'Unable to save category.'
       render :action => "new"
     end
   end
@@ -38,6 +39,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.update_attributes(params[:category])
       redirect_to admin_categories_path, :notice => 'Category was successfully updated.'
     else
+      flash.now[:error] = 'Unable to save category.'
       render :action => "edit"
     end
   end

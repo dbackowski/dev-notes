@@ -12,7 +12,7 @@ module ApplicationHelper
       errors_list = capture do
         content_tag :ul do 
           model.errors.each do |attr,message|
-            concat(content_tag :li, attr.capitalize.to_s + ' ' + message)
+            concat(content_tag :li, message)
           end
         end
       end
@@ -23,12 +23,12 @@ module ApplicationHelper
       result = content_tag :div, result, :class => 'alert-message block-message error'
     end
   end
-
+  
   def info(msg)
     content_tag(:div, msg, :class => 'alert-message block-message info')
   end
 
   def pretty_print(text)
-    RedCloth.new(text.gsub(/\[code\](.*?)\[\/code\]/m) { "<notextile><pre class=\"prettyprint\">#{$1}</pre></notextile>" }).to_html.html_safe
+    RedCloth.new(text).to_html.html_safe
   end
 end

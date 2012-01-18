@@ -53,6 +53,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to @note, :notice => 'Note was successfully created.'
     else
+      flash.now[:error] = 'Unable to save note.'
       render :action => "new"
     end
   end
@@ -74,7 +75,11 @@ class NotesController < ApplicationController
       @notes = Note.public_visible_only.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
     end
     
-   # render :partial => 'notes'
+    render :partial => 'notes'
+  end
+
+  def preview
+    render :partial => 'preview'
   end
   
   def destroy

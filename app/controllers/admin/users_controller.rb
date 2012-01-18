@@ -25,6 +25,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_users_path, :notice => 'User was successfully created.'
     else
+      flash.now[:error] = 'Unable to save user.'
       render :action => "new"
     end
   end

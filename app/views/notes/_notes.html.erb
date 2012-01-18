@@ -3,8 +3,8 @@
   <% @notes.each do |note| %>
     <div class="span-one-third">
       <div class="note">
-        <h2><%= link_to note.title, note %></h2>
-        <%= pretty_print note.description %>
+        <h2><%= link_to(highlight(note.title, params[:search]), note) %></h2>
+        <%= highlight(pretty_print(note.description), params[:search]) %>
         <div class="gradient"></div>
       </div>
     </div>
@@ -14,4 +14,8 @@
   <%= will_paginate @notes, :renderer => BootstrapPaginationLinkRenderer %>
 <% else %>
   <%= info 'No notes found.' %>
+<% end %>
+
+<%= javascript_tag do %>
+  $('#notes-count').html('<b><%= "#{pluralize(@notes.count, 'note')}" %></b>');
 <% end %>

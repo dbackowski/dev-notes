@@ -2,6 +2,7 @@ DevNotes::Application.routes.draw do
   resources :notes do
     collection do
       post :search
+      post :preview
     end
   end
 
