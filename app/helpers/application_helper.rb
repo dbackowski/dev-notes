@@ -29,6 +29,6 @@ module ApplicationHelper
   end
 
   def pretty_print(text)
-    RedCloth.new(text).to_html.html_safe
+    RedCloth.new(text.gsub(/@(.*?)@/m) { "<notextile><pre class=\"prettyprint\">#{$1}</pre></notextile>" }).to_html.html_safe
   end
 end
