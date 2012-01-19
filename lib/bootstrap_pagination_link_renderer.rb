@@ -1,6 +1,7 @@
 class BootstrapPaginationLinkRenderer < WillPaginate::ActionView::LinkRenderer
   protected
   def html_container(html)
+    container_attributes[:class] += ' center'
     tag :div, tag(:ul, html), container_attributes
   end
 

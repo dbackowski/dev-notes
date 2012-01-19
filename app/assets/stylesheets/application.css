@@ -193,3 +193,12 @@ input.search {
 .preview .content {
   margin: 0px;
 }
+
+.pagination ul {
+   float: none;
+   display: inline-block;
+   overflow: hidden;
+}
+.pagination.center {
+   text-align: center;
+}
