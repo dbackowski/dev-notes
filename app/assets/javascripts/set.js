@@ -28,7 +28,7 @@ myTextileSettings = {
         {name:'Link', openWith:'"', closeWith:'([![Title]!])":[![Link:!:http://]!]', placeHolder:'Your text to link here...' },
         {separator:'---------------' },
         {name:'Quotes', openWith:'bq(!(([![Class]!]))!). '}, 
-        {name:'Code', openBlockWith:'@', closeBlockWith:'@', multiline:true}, 
+        {name:'Code', openBlockWith:'@@@', closeBlockWith:'@@@', multiline:true}, 
         {separator:'---------------' },       
         {name:'Preview', call:'preview', className:'preview'}
     ]
