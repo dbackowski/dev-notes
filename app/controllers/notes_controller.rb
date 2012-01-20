@@ -70,9 +70,11 @@ class NotesController < ApplicationController
     search = "%#{params[:search]}%"
 
     if @logged_user.present?
-      @notes = Note.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
+      @notes = Note.where("title COLLATE UTF8_GENERAL_CI LIKE ? 
+                          OR description COLLATE UTF8_GENERAL_CI LIKE ?", search, search).paginate(:page => params[:page])
     else
-      @notes = Note.public_visible_only.where("title like ? OR description like ?", search, search).paginate(:page => params[:page])
+      @notes = Note.public_visible_only.where("title COLLATE UTF8_GENERAL_CI LIKE ? 
+                                              OR description COLLATE UTF8_GENERAL_CI LIKE ?", search, search).paginate(:page => params[:page])
     end
     
     render :partial => 'notes'
