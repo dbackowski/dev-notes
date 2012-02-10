@@ -1,7 +1,7 @@
 <% unless @notes.blank? %>
   <div class="row">
   <% @notes.each do |note| %>
-    <div class="span-one-third">
+    <div class="span4">
       <div class="note">
         <h2><%= link_to(highlight(note.title, params[:search]), note) %></h2>
         <%= highlight(pretty_print(note.description), params[:search]) %>

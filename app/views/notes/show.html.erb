@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span12">
+  <div class="span8">
     <h2><%= @note.title %></h2>
     <p>
       <b>Category:</b>
@@ -8,7 +8,7 @@
     <p>
       <b>Public Visible:</b>
       <% if @note.public_visible %>
-        <span class="label important">Yes</span>
+        <span class="label label-important">Yes</span>
       <% else %>  
         <span class="label">No</span>
       <% end %>
@@ -17,7 +17,7 @@
       <%= pretty_print @note.description %>
     </p>
   </div>
-  <div class="span4">
+  <div class="span4 author-info">
     <h4>Added by:</h4>
     <p>
       <%= image_tag @note.user.get_gravatar_path, :width => 64, :height => 64 %>
@@ -26,8 +26,8 @@
       <%= @note.user.full_name %>
     </p>
     <% if @logged_user.present? && (@logged_user.id == @note.add_user_id || is_admin?)%>
-      <%= link_to 'Edit note', edit_note_path(@note), :class => 'btn primary small' %>
-      <%= link_to 'Destroy note', @note, :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small' %>
+      <%= link_to 'Edit note', edit_note_path(@note), :class => 'btn btn-primary' %>
+      <%= link_to 'Destroy note', @note, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger' %>
     <% end %>
   </div>
 </div>

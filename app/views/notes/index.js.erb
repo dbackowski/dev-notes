@@ -1,0 +1,7 @@
+$('#notes-list').html('<%= escape_javascript(render(:partial => "notes")) %>');
+
+$('.pagination a').live('click', 
+	function () {
+  	$.getScript(this.href); 
+	}
+);

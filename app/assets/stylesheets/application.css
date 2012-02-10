@@ -37,37 +37,15 @@ body {
   margin: -20px -20px 20px;
 }
 
-/* Styles you shouldn't keep as they are for displaying this base example only */
-.content .span10,
-.content .span4 {
+.span4.author-info {
   min-height: 500px;
-}
-/* Give a quick and non-cross-browser friendly divider */
-.content .span4 {
   margin-left: 0;
   padding-left: 19px;
   border-left: 1px solid #eee;
 }
 
-.topbar .btn {
-  border: 0;
-}
-
-.topbar p a.btn {
-  color: #333333;  
-}
-
-.topbar p a.btn.danger, .topbar p a.btn.danger:hover {
-  color: #FFFFFF;
-}
-
-.topbar p a.btn.danger:hover {
-  background-color: #C43C35;
-}
-
-.topbar p a.btn:hover {
-  color: #333333;
-  background-color: #E6E6E6;
+.navbar .navbar-inner .container p {
+  color: #999;;
 }
 
 #notes-list {
@@ -75,8 +53,7 @@ body {
 }
 
 #notes-count {
-  float: left;
-  line-height: 25px;
+  display: inline;
   margin-left: 5px;
 }
 
@@ -93,9 +70,6 @@ body {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-/*  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;*/
   height: 170px;
   overflow: hidden;
 }
@@ -111,6 +85,13 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(243, 243, 243, 0)), to(#f3f3f3));
   background: -moz-linear-gradient(top, rgba(243, 243, 243, 0), #f3f3f3);
   background: -o-linear-gradient(top, rgba(243, 243, 243, 0), #f3f3f3); 
+}
+
+.form-horizontal .control-group > div.field_with_errors label {
+    float: left;
+    width: 140px;
+    padding-top: 5px;
+    text-align: right;
 }
 
 .field_with_errors input, .field_with_errors select, .field_with_errors textarea {
@@ -137,10 +118,6 @@ code {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
- /* white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;*/
-
 }
 
 .prettyprint {
@@ -166,7 +143,6 @@ input.search {
 .loading {
   background-image: url('/ajax-loader.gif');
   background-repeat: no-repeat;
-  /*padding-left: 20px;*/
   padding-right: 20px;
   background-position: right center; 
 }

@@ -2,14 +2,13 @@
 <html>
 <head>
   <title>DevNotes</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="topbar">
-    <div class="fill">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
       <div class="container">
         <div class="brand">Dev Notes</div>
        
@@ -24,11 +23,11 @@
         
         <% unless @logged_user.blank? %>
           <p class="pull-right">
-            Logged as: <%= link_to @logged_user.full_name, user_path(@logged_user) %>&nbsp;<%= link_to 'Log out', {:controller => '/sessions', :action => :destroy}, :method => :delete, :class => 'btn danger smaller' %>
+            Logged as: <%= link_to @logged_user.full_name, user_path(@logged_user) %>&nbsp;<%= link_to 'Log out', {:controller => '/sessions', :action => :destroy}, :method => :delete, :class => 'btn btn-danger' %>
           </p>
         <% else %>
           <p class="pull-right">
-            <%= link_to 'Log in', new_sessions_path, :class => 'btn small' %>
+            <%= link_to 'Log in', new_sessions_path, :class => 'btn' %>
           </p>
         <% end %>
       </div>
@@ -38,13 +37,13 @@
   <div class="container">
     <div class="content">
       <% unless flash[:error].blank? %>
-        <div class="alert-message error">
+        <div class="alert alert-error">
           <%= flash[:error] %>
         </div>
       <% end %>
 
       <% unless flash[:notice].blank? %>
-        <div class="alert-message success">
+        <div class="alert alert-success">
           <%= flash[:notice] %>
         </div>
       <% end %>
@@ -53,9 +52,8 @@
     </div>
 
     <footer>
-      <p>&copy; 2011</p>
+      <p>&copy; 2012</p>
     </footer>
   </div> 
-
 </body>
 </html>

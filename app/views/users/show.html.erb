@@ -27,14 +27,14 @@
 <p>
   <b>Admin:</b>
   <% if @user.admin %>
-    <span class="label success">Yes</span>
+    <span class="label label-success">Yes</span>
   <% else %>  
     <span class="label">No</span>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(:id => @user.id), :class => 'btn small' %>
-<%= link_to 'Change password', passwd_user_path(:id => @user.id), :class => 'btn small' %>
+<%= link_to 'Edit', edit_user_path(:id => @user.id), :class => 'btn btn-primary' %>
+<%= link_to 'Change password', passwd_user_path(:id => @user.id), :class => 'btn' %>
 <% if is_admin? %>
-  <%= link_to 'Destroy', user_path(:id => @user.id), :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small' %>
+  <%= link_to 'Destroy', user_path(:id => @user.id), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger' %>
 <% end %>

@@ -1,13 +1,13 @@
 <div class="row">
-  <span class="span12">
+  <span class="span5">
     <h2>Users list</h2>
   </span>
   <span class="pull-right">
-    <%= link_to 'New User', new_admin_user_path, :class => 'btn primary small' %>
+    <%= link_to 'New User', new_admin_user_path, :class => 'btn btn-primary' %>
   </span>
 </div>
 
-<table>
+<table class="table">
   <tr>
     <th>Login</th>
     <th>First name</th>
@@ -23,7 +23,7 @@
     <td><%= user.last_name %></td>
     <td>
     <% if user.admin %>
-      <span class="label success">Yes</span>
+      <span class="label label-success">Yes</span>
     <% else %>  
       <span class="label">No</span>
     <% end %>

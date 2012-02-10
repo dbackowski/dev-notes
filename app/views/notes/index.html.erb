@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="span14">
-    <%= form_tag '#', :id => 'search-form', :method => :get do %>
-      <%= text_field_tag 'search', params[:search], :class => 'span5 search' %>
+  <div class="span10">
+    <%= form_tag '#', :method => :get do %>
+      <%= text_field_tag 'search', params[:search], :class => 'span5 search', :remote => true %>
       <div id="notes-count"></div>
     <% end %>
   </div>
   <div class="span2">
-    <%= link_to 'New Note', new_note_path, :class => 'btn primary small'  %>
+    <p class="pull-right">
+      <%= link_to 'New Note', new_note_path, :class => 'btn btn-primary'  %>
+    </p>
   </div>
 </div>
 

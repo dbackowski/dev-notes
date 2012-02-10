@@ -27,10 +27,24 @@ class NotesController < ApplicationController
 
   public
   def index
+    if params[:search].present?
+      search = "%#{params[:search]}%"
+    end
+
     if @logged_user.present?
-      @notes = Note.paginate(:page => params[:page])
+      if search.present?
+        @notes = Note.where("lower(title) LIKE lower(?) 
+                            OR lower(description) LIKE lower(?)", search, search).paginate(:page => params[:page])
+      else
+        @notes = Note.paginate(:page => params[:page])
+      end
     else
-      @notes = Note.public_visible_only.paginate(:page => params[:page])
+      if search.present?
+        @notes = Note.public_visible_only.where("lower(title) LIKE lower(?) 
+                                                OR lower(description) LIKE lower(?)", search, search).paginate(:page => params[:page])
+      else
+        @notes = Note.public_visible_only.paginate(:page => params[:page])
+      end
     end
   end
 

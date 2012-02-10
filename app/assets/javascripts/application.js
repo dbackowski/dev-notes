@@ -14,13 +14,9 @@ $(document).ready(function(){
 	
 	$("#search").bind("keyup", function() {
 	  	$("#notes-count").addClass("loading"); // show the spinner
-	  	var form = $("#search-form"); // grab the form wrapping the search bar.
-	  	var url = "/notes/search"; // live_search action.  
-	  	var formData = form.serialize(); // grab the data in the form  
-	  	$.post(url, formData, function(html) { // perform an AJAX get
+	  	$.get('/notes', { search: $(this).val(), page: 1 }, function(html) { // perform an AJAX get
 	    	$("#notes-count").removeClass("loading"); // hide the spinner
-	   		$("#notes-list").html(html); // replace the "results" div with the results
-	  	});
+	  	}, 'script');
 	}); 
 
  	$('#textile').markItUp(myTextileSettings);

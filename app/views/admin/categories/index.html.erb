@@ -1,14 +1,14 @@
 <div class="row">
-  <span class="span12">
+  <span class="span5">
     <h2>Categories list</h2>
   </span>
   <span class="pull-right">
-    <%= link_to 'New category', new_admin_category_path, :class => 'btn primary small' %>
+    <%= link_to 'New category', new_admin_category_path, :class => 'btn btn-primary' %>
   </span>
 </div>
 
 <% unless @categories.blank? %>
-  <table>
+  <table class="table">
     <tr>
       <th>Name</th>
       <th class="span3"></th>

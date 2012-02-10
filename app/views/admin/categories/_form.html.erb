@@ -1,15 +1,15 @@
-<%= form_for [:admin, @category] do |f| %>
+<%= form_for [:admin, @category], :html => {:class => 'form-horizontal'} do |f| %>
   <%= error_messages_for :category %>
 
-  <div class="clearfix">
+  <div class="control-group">
     <%= f.label :name %>
-    <div class="input">
+    <div class="controls">
       <%= f.text_field :name %>
     </div>
   </div>
   
-  <div class="actions">
-    <%= f.submit 'Save', :class => 'btn primary small' %>
-    <%= f.submit 'Cancel', :value => 'cancel', :class => 'btn small' %>
+  <div class="form-actions">
+    <%= f.submit 'Save', :class => 'btn btn-primary' %>
+    <%= f.submit 'Cancel', :value => 'cancel', :class => 'btn' %>
   </div>
 <% end %>
