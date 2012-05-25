@@ -14,7 +14,7 @@ development:
   reconnect: false
   database: dev-notes_development
   pool: 5
-  username: mysql
+  username: dev-notes
   password:
   host: localhost
 
@@ -27,7 +27,7 @@ test:
   reconnect: false
   database: dev-notes_test
   pool: 5
-  username: mysql
+  username: dev-notes
   password:
   host: localhost
 
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: dev-notes
   pool: 5
-  username: mysql
+  username: dev-notes
   password:
   host: localhost
