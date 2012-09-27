@@ -22,8 +22,12 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'thin'
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl', '~> 2.6.0'
+  gem 'seed-fu', '~> 2.2.0'
+  gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password
