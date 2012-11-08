@@ -5,6 +5,11 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @notes = Note.where('category_id = ?', params[:id]).paginate(:page => params[:page])
+    
+    if @logged_user.present?
+      @notes = Note.where('category_id = ?', params[:id]).paginate(:page => params[:page])
+    else
+      @notes = Note.public_visible_only.where('category_id = ?', params[:id]).paginate(:page => params[:page])
+    end
   end
 end
